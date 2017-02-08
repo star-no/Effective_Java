@@ -12,6 +12,9 @@ public class WeakHashMapDemo {
     public static void main(String[] args) {
         // -- Fill a weak hash map with one entry
         WeakHashMap<Data, String> map = new WeakHashMap<Data, String>();
+        //HashMap<Data, String> map = new HashMap<Data, String>();
+        // HashMap do not catch someDataObject is null.
+
         Data someDataObject = new Data("foo");
         map.put(someDataObject, someDataObject.value);
         System.out.println("map contains someDataObject ? " + map.containsKey(someDataObject));
@@ -19,7 +22,7 @@ public class WeakHashMapDemo {
         // -- now make someDataObject elligible for garbage collection...
         someDataObject = null;
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < Integer.MAX_VALUE; i++) {
             if (map.size() != 0) {
                 System.out.println("At iteration " + i + " the map still holds the reference on someDataObject");
             } else {
