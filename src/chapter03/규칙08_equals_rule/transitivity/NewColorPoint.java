@@ -28,4 +28,5 @@ public class NewColorPoint {
         NewColorPoint cp = (NewColorPoint) obj;
         return cp.point.equals(point) && cp.color.equals(color);
     }
+
 }
